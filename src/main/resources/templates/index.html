@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        .persons, .persons td {
+            border: 1px solid lightgray;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Books:</h1>
+
+<table class="books">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <li th:each="book:${books}">
+            <td th:text="${book.id}">1</td>
+            <td th:text="${book.name}">John Doe</td>
+            <td th:text="${book.author.name}">Jack London</td>
+            <td th:text="${book.genre.name}">Detective</td>
+            <td>
+                <a href="edit.html" th:href="@{/edit(id=${book.id})}">Edit</a>
+            </td>
+            <td>
+                <form th:action="@{/edited(id=${book.id})}" th:method="post"  >
+                    <!--                    <a href="index.html" th:href="@{/(id=${book.id})}">Delete</a>-->
+                    <div class="row">
+                        <button type="submit">Del</button>
+                    </div>
+                </form>
+
+            </td>
+        </li>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

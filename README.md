@@ -1,15 +1,15 @@
 # A simple example of using H2DB in web application 
 
-#Technologies used:
+###Technologies used:
 Spring boot
 Spring Data JPA
 H2 data base
 
-#Required software
+###Required software
 TomCat9 server
 
-#Installing
+###Installing
 mvn clean install -U
 
-#Built With
+###Built With
 Maven - Dependency Management
